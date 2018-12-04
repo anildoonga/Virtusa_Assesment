@@ -84,7 +84,7 @@ public class MainFeedActivity extends AppCompatActivity implements SwipeRefreshL
             }
         });*/
         // SwipeRefreshLayout
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        mSwipeRefreshLayout = findViewById(R.id.swiperefresh);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(android.R.color.holo_orange_dark,
                 android.R.color.holo_green_dark,
@@ -96,24 +96,13 @@ public class MainFeedActivity extends AppCompatActivity implements SwipeRefreshL
      * Loading of Recycler Viewer
      */
     private void loadRecyclerView() {
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
     }
-
-    public static Comparator<String> StringAscComparator = new Comparator<String>() {
-
-        public int compare(String app1, String app2) {
-
-            String stringName1 = app1;
-            String stringName2 = app2;
-
-            return stringName1.compareToIgnoreCase(stringName2);
-        }
-    };
 
     /**
      * making the call using enqueue()
